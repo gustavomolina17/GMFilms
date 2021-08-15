@@ -6,12 +6,15 @@ import Home from "./Pages/Home/index.js";
 
 import Header from "./components/Header/index.js";
 
+import Filme from "./Pages/Filme";
+
 const Routes = () => {
   return (
     <BrowserRouter>
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/filme/:id" component={Filme} />
       </Switch>
     </BrowserRouter>
   );
