@@ -8,6 +8,8 @@ import Header from "./components/Header/index.js";
 
 import Filme from "./Pages/Filme";
 
+import Favoritos from "./Pages/Favoritos";
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -15,6 +17,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/filme/:id" component={Filme} />
+        <Route exact path="favoritos" component={Favoritos} />
       </Switch>
     </BrowserRouter>
   );

@@ -32,6 +32,31 @@ export default function Filme() {
     };
   }, [history, id]);
 
+  function salvaFilme() {
+    // alert("Teste"); Apenas p/ testar se está onClick
+
+    const minhaLista = localStorage.getItem("filmes");
+
+    let filmesSalvos = JSON.parse(minhaLista) || [];
+
+    //Se tiver algum filme salvo com esse ID precisa ignorar
+
+    //some --> função (método) do  js que vai percorrer todo o array de filmes salvos e vai verificar se existe pelo menos algum com o parâmetro que nós vamos passar. Devolve um boolean.
+
+    const hasfilmes = filmesSalvos.some(
+      (filmeSalvo) => filmeSalvo.id === filmes.id
+    );
+
+    if (hasfilmes) {
+      alert("Você já possui esse filme salvo");
+      return; // p/ parar a execução do código aqui
+    }
+
+    filmesSalvos.push(filmes);
+    localStorage.setItem("filmes", JSON.stringify(filmesSalvos));
+    alert("Filme salvo com sucesso");
+  }
+
   if (loading) {
     return (
       <div className="filme-info">
@@ -49,7 +74,7 @@ export default function Filme() {
       {filmes.sinopse}
 
       <div className="botoes">
-        <button onClick={() => {}}>Salvar</button>
+        <button onClick={salvaFilme}>Salvar</button>
         <button>
           <a
             target="blank"
