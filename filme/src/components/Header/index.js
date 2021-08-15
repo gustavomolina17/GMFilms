@@ -6,7 +6,7 @@ export default function Header() {
       <Link className="logo" to="/">
         GMFilms
       </Link>
-      <Link className="favoritos" to="/">
+      <Link className="favoritos" to="/favoritos">
         Salvos
       </Link>
     </header>
